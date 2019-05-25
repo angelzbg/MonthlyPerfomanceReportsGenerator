@@ -96,7 +96,6 @@ public class Main {
 			
 			final int n = results.size();
 			
-			SingleResult temp = null;  
 			for(int i=0; i < n; i++) {
 				for(int j=1; j < (n-i); j++) {
 					if( results.get(j-1).getScore() < results.get(j).getScore() ) {
@@ -105,8 +104,8 @@ public class Main {
 				}
 			}
 			
-			int iterations = 10;;
-			if(n<10) iterations = n;
+			int iterations = reportDefinition.getTopPerformersThreshold();
+			if(n < reportDefinition.getTopPerformersThreshold()) iterations = n;
 			
 			FileWriter csvWriter;
 			try {
